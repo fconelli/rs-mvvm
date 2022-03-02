@@ -16,6 +16,8 @@
 		5626443327CF9AB000A8D2C2 /* RS_MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443227CF9AB000A8D2C2 /* RS_MVVMTests.swift */; };
 		5626443D27CF9AB000A8D2C2 /* RS_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443C27CF9AB000A8D2C2 /* RS_MVVMUITests.swift */; };
 		5626443F27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */; };
+		5626445327CFA39200A8D2C2 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */; };
+		5626445527CFA3B600A8D2C2 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		5626443827CF9AB000A8D2C2 /* RS-MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RS-MVVMUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5626443C27CF9AB000A8D2C2 /* RS_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVMUITests.swift; sourceTree = "<group>"; };
 		5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
+		5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +103,9 @@
 		5626441A27CF9AAE00A8D2C2 /* RS-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				5626444B27CF9B8B00A8D2C2 /* Helpers */,
+				5626444C27CF9B9400A8D2C2 /* Services */,
+				5626444D27CF9B9D00A8D2C2 /* Screens */,
 				5626441B27CF9AAE00A8D2C2 /* AppDelegate.swift */,
 				5626441D27CF9AAE00A8D2C2 /* SceneDelegate.swift */,
 				5626441F27CF9AAE00A8D2C2 /* ViewController.swift */,
@@ -125,6 +132,61 @@
 				5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */,
 			);
 			path = "RS-MVVMUITests";
+			sourceTree = "<group>";
+		};
+		5626444B27CF9B8B00A8D2C2 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		5626444C27CF9B9400A8D2C2 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		5626444D27CF9B9D00A8D2C2 /* Screens */ = {
+			isa = PBXGroup;
+			children = (
+				5626444E27CFA35800A8D2C2 /* Employees */,
+			);
+			path = Screens;
+			sourceTree = "<group>";
+		};
+		5626444E27CFA35800A8D2C2 /* Employees */ = {
+			isa = PBXGroup;
+			children = (
+				5626445127CFA38200A8D2C2 /* ViewModel */,
+				5626445027CFA37C00A8D2C2 /* View */,
+				5626444F27CFA37500A8D2C2 /* Model */,
+			);
+			path = Employees;
+			sourceTree = "<group>";
+		};
+		5626444F27CFA37500A8D2C2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		5626445027CFA37C00A8D2C2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		5626445127CFA38200A8D2C2 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +322,8 @@
 			files = (
 				5626442027CF9AAE00A8D2C2 /* ViewController.swift in Sources */,
 				5626441C27CF9AAE00A8D2C2 /* AppDelegate.swift in Sources */,
+				5626445327CFA39200A8D2C2 /* EmployeesViewController.swift in Sources */,
+				5626445527CFA3B600A8D2C2 /* EmployeesViewModel.swift in Sources */,
 				5626441E27CF9AAE00A8D2C2 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
