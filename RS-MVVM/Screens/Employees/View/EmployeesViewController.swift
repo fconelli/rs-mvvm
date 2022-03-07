@@ -31,7 +31,9 @@ class EmployeesViewController: UIViewController {
     private func setupViewModel() {
         viewModel = EmployeesViewModel(EmployeeLocalService())
         viewModel?.reloadUI = {
-            self.tableView.reloadData()
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
         }
     }
     
