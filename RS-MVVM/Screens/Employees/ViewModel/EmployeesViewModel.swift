@@ -7,10 +7,16 @@
 
 import Foundation
 
-struct EmployeesViewModel {
+class EmployeesViewModel {
     
-    var employees: [Employee] = []
+    var employees: [Employee] = [] {
+        didSet {
+            // execute update UI handler
+            self.reloadUI?()
+        }
+    }
     var service: EmployeeService?
+    var reloadUI: (() -> Void)?
     
     init(_ service: EmployeeService) {
         self.service = service
@@ -21,10 +27,10 @@ struct EmployeesViewModel {
     }
     
     func getEmployees() {
-        service?.getEmployees() { employees, error in
-            guard error != nil else { return }
-            
-            print(employees)
+        service?.getEmployees() { [weak self] employees, error in
+            guard error == nil else { return }
+
+            self?.employees = employees
         }
     }
 }

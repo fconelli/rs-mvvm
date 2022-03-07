@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		560422B727D5681A0073C0D5 /* Employee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560422B627D5681A0073C0D5 /* Employee.swift */; };
 		560422B927D570D30073C0D5 /* EmployeeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 560422B827D570D20073C0D5 /* EmployeeService.swift */; };
+		560422BB27D59FA80073C0D5 /* demo.json in Resources */ = {isa = PBXBuildFile; fileRef = 560422BA27D59FA70073C0D5 /* demo.json */; };
 		5626441C27CF9AAE00A8D2C2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626441B27CF9AAE00A8D2C2 /* AppDelegate.swift */; };
 		5626441E27CF9AAE00A8D2C2 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626441D27CF9AAE00A8D2C2 /* SceneDelegate.swift */; };
 		5626442027CF9AAE00A8D2C2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626441F27CF9AAE00A8D2C2 /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		560422B627D5681A0073C0D5 /* Employee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Employee.swift; sourceTree = "<group>"; };
 		560422B827D570D20073C0D5 /* EmployeeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeService.swift; sourceTree = "<group>"; };
+		560422BA27D59FA70073C0D5 /* demo.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = demo.json; sourceTree = "<group>"; };
 		5626441827CF9AAE00A8D2C2 /* RS-MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "RS-MVVM.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5626441B27CF9AAE00A8D2C2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5626441D27CF9AAE00A8D2C2 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -87,6 +89,7 @@
 		5626440F27CF9AAE00A8D2C2 = {
 			isa = PBXGroup;
 			children = (
+				560422BA27D59FA70073C0D5 /* demo.json */,
 				5626441A27CF9AAE00A8D2C2 /* RS-MVVM */,
 				5626443127CF9AB000A8D2C2 /* RS-MVVMTests */,
 				5626443B27CF9AB000A8D2C2 /* RS-MVVMUITests */,
@@ -301,6 +304,7 @@
 			files = (
 				5626442827CF9AB000A8D2C2 /* LaunchScreen.storyboard in Resources */,
 				5626442527CF9AB000A8D2C2 /* Assets.xcassets in Resources */,
+				560422BB27D59FA80073C0D5 /* demo.json in Resources */,
 				5626442327CF9AAE00A8D2C2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -8,8 +8,15 @@
 import Foundation
 
 struct Employee: Codable {
-    var id: String
-    var name: String
-    var salary: String
-    var age: String
+    let id: String
+    let name: String
+    let salary: String
+    let age: String
+    
+    enum CodingKeys: String, CodingKey {
+        case id
+        case name = "employee_name"
+        case salary = "employee_salary"
+        case age = "employee_age"
+    }
 }

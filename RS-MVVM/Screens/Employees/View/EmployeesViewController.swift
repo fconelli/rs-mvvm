@@ -20,11 +20,19 @@ class EmployeesViewController: UIViewController {
         super.viewDidLoad()
         
         setupViews()
+        setupViewModel()
         fetchEmployees()
     }
     
     private func setupViews() {
         
+    }
+    
+    private func setupViewModel() {
+        viewModel = EmployeesViewModel(EmployeeLocalService())
+        viewModel?.reloadUI = {
+            self.tableView.reloadData()
+        }
     }
     
     func fetchEmployees() {
