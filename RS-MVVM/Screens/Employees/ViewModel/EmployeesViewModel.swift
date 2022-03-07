@@ -33,4 +33,10 @@ class EmployeesViewModel {
             self?.employees = employees
         }
     }
+    
+    func getEmployee(forIndex indexPath: IndexPath) -> Employee? {
+        guard employees.count > indexPath.row else { return nil }
+        
+        return employees[indexPath.row]
+    }
 }

@@ -13,19 +13,18 @@ class EmployeesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    //    var viewModel: EmployeesViewModel?
     var viewModel: EmployeesViewModel?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupViews()
+        setupTableView()
         setupViewModel()
         fetchEmployees()
     }
     
-    private func setupViews() {
-        
+    private func setupTableView() {
+        tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeTableViewCell")
     }
     
     private func setupViewModel() {
@@ -48,7 +47,13 @@ extension EmployeesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as? EmployeeTableViewCell
+        else { fatalError("xib does not exists") }
+        
+        if let model = viewModel?.getEmployee(forIndex: indexPath) {
+            cell.configure(with: model)
+        }
+        return cell
     }
     
     
