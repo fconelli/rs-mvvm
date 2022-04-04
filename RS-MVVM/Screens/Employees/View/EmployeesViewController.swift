@@ -13,7 +13,19 @@ class EmployeesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    var viewModel: EmployeesViewModel?
+    private var viewModel: EmployeesViewModel
+    
+    // MARK: - Initialization
+
+    init?(coder: NSCoder, viewModel: EmployeesViewModel) {
+        self.viewModel = viewModel
+
+        super.init(coder: coder)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("Use `init(coder:viewModel:)` to instantiate a `EmployeesViewController` instance.")
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,8 +40,7 @@ class EmployeesViewController: UIViewController {
     }
     
     private func setupViewModel() {
-        viewModel = EmployeesViewModel(EmployeeLocalService())
-        viewModel?.reloadUI = {
+        viewModel.reloadUI = {
             DispatchQueue.main.async {
                 self.tableView.reloadData()
             }
@@ -37,20 +48,20 @@ class EmployeesViewController: UIViewController {
     }
     
     func fetchEmployees() {
-        viewModel?.getEmployees()
+        viewModel.getEmployees()
     }
 }
 
 extension EmployeesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel?.nunmberOfRows ?? 0
+        return viewModel.nunmberOfRows 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as? EmployeeTableViewCell
         else { fatalError("xib does not exists") }
         
-        if let model = viewModel?.getEmployee(forIndex: indexPath) {
+        if let model = viewModel.getEmployee(forIndex: indexPath) {
             cell.configure(with: model)
         }
         return cell
