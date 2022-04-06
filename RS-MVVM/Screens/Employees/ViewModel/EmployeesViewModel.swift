@@ -6,17 +6,12 @@
 //
 
 import Foundation
+import Combine
 
 class EmployeesViewModel {
     
-    var employees: [Employee] = [] {
-        didSet {
-            // execute update UI handler
-            self.reloadUI?()
-        }
-    }
+    @Published private(set) var employees: [Employee] = []
     var service: EmployeeService?
-    var reloadUI: (() -> Void)?
     
     init(_ service: EmployeeService) {
         self.service = service

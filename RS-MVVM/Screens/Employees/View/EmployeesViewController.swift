@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import Combine
 
 
 class EmployeesViewController: UIViewController {
@@ -14,6 +15,7 @@ class EmployeesViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var viewModel: EmployeesViewModel
+    private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Initialization
 
@@ -31,7 +33,7 @@ class EmployeesViewController: UIViewController {
         super.viewDidLoad()
         
         setupTableView()
-        setupViewModel()
+        setupBindings()
         fetchEmployees()
     }
     
@@ -39,12 +41,12 @@ class EmployeesViewController: UIViewController {
         tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeTableViewCell")
     }
     
-    private func setupViewModel() {
-        viewModel.reloadUI = {
-            DispatchQueue.main.async {
-                self.tableView.reloadData()
+    private func setupBindings() {
+        viewModel.$employees
+            .sink { [weak self] _ in
+                self?.tableView.reloadData()
             }
-        }
+            .store(in: &subscriptions)
     }
     
     func fetchEmployees() {
