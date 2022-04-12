@@ -14,7 +14,7 @@ class EmployeesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
-    private var viewModel: EmployeesViewModel
+    private let viewModel: EmployeesViewModel
     private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Initialization
