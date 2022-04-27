@@ -18,8 +18,8 @@ class EmployeeRemoteService: EmployeeService {
         loadJson(fromURLString: demoJsonURL) { response in
             switch response {
             case .success(let data):
-                if let employess = try? EmployeesMapper.map(data) {
-                    completion(employess,nil)
+                if let employees = try? EmployeesMapper.map(data) {
+                    completion(employees,nil)
                 } else {
                     completion([], nil)
                 }
