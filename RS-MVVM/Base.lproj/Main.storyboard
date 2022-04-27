@@ -24,17 +24,23 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="FHE-8u-STm"/>
                                 </connections>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="x6T-nV-MpI">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="x6T-nV-MpI" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Fg-JS-R5u"/>
                             <constraint firstItem="gZ6-6F-SkH" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="Grx-p4-ihz"/>
                             <constraint firstItem="gZ6-6F-SkH" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="Kt4-P8-f1O"/>
+                            <constraint firstItem="x6T-nV-MpI" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Owq-ZG-1KX"/>
                             <constraint firstAttribute="bottom" secondItem="gZ6-6F-SkH" secondAttribute="bottom" id="fC4-Qe-Ojg"/>
                             <constraint firstItem="gZ6-6F-SkH" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="n7R-b1-Cwj"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="loaderIndicator" destination="x6T-nV-MpI" id="Yrc-w2-hTw"/>
                         <outlet property="tableView" destination="gZ6-6F-SkH" id="nON-Bw-rTm"/>
                     </connections>
                 </viewController>

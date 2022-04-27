@@ -13,7 +13,8 @@ import Combine
 class EmployeesViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
-    
+    @IBOutlet weak var loaderIndicator: UIActivityIndicatorView!
+  
     private let viewModel: EmployeesViewModel
     private var subscriptions = Set<AnyCancellable>()
     
@@ -43,14 +44,31 @@ class EmployeesViewController: UIViewController {
     
     private func setupBindings() {
         viewModel.$employees
-            .sink { [weak self] _ in
-                self?.tableView.reloadData()
-            }
-            .store(in: &subscriptions)
+          .receive(on: DispatchQueue.main)
+          .sink { [weak self] _ in
+              self?.tableView.reloadData()
+              self?.stopLoading()
+          }
+          .store(in: &subscriptions)
     }
     
     func fetchEmployees() {
-        viewModel.getEmployees()
+        startLoading()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
+            self?.viewModel.getEmployees()
+        }
+    }
+  
+    func startLoading() {
+        DispatchQueue.main.async {
+            self.loaderIndicator.isHidden = false
+            self.loaderIndicator.startAnimating()
+        }
+    }
+  
+    func stopLoading() {
+        self.loaderIndicator.stopAnimating()
+        self.loaderIndicator.isHidden = true
     }
 }
 
