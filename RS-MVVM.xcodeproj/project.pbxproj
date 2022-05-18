@@ -23,6 +23,9 @@
 		5626443F27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */; };
 		5626445327CFA39200A8D2C2 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */; };
 		5626445527CFA3B600A8D2C2 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */; };
+		5671134A283580AF00A01197 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56711349283580AF00A01197 /* Coordinator.swift */; };
+		5671134C283580D000A01197 /* MainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671134B283580D000A01197 /* MainCoordinator.swift */; };
+		5671134E2835814800A01197 /* EmployeesCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5671134D2835814700A01197 /* EmployeesCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +66,9 @@
 		5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
+		56711349283580AF00A01197 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		5671134B283580D000A01197 /* MainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCoordinator.swift; sourceTree = "<group>"; };
+		5671134D2835814700A01197 /* EmployeesCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,6 +120,7 @@
 		5626441A27CF9AAE00A8D2C2 /* RS-MVVM */ = {
 			isa = PBXGroup;
 			children = (
+				567113482835809600A01197 /* Coordinators */,
 				5626444B27CF9B8B00A8D2C2 /* Helpers */,
 				5626444C27CF9B9400A8D2C2 /* Services */,
 				5626444D27CF9B9D00A8D2C2 /* Screens */,
@@ -202,6 +209,16 @@
 				5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		567113482835809600A01197 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				56711349283580AF00A01197 /* Coordinator.swift */,
+				5671134B283580D000A01197 /* MainCoordinator.swift */,
+				5671134D2835814700A01197 /* EmployeesCoordinator.swift */,
+			);
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -340,11 +357,14 @@
 				5626442027CF9AAE00A8D2C2 /* ViewController.swift in Sources */,
 				560422B727D5681A0073C0D5 /* Employee.swift in Sources */,
 				5620CA3027D62236004A7F2B /* EmployeeTableViewCell.swift in Sources */,
+				5671134C283580D000A01197 /* MainCoordinator.swift in Sources */,
+				5671134E2835814800A01197 /* EmployeesCoordinator.swift in Sources */,
 				560422B927D570D30073C0D5 /* EmployeeService.swift in Sources */,
 				5626441C27CF9AAE00A8D2C2 /* AppDelegate.swift in Sources */,
 				5626445327CFA39200A8D2C2 /* EmployeesViewController.swift in Sources */,
 				5626445527CFA3B600A8D2C2 /* EmployeesViewModel.swift in Sources */,
 				5626441E27CF9AAE00A8D2C2 /* SceneDelegate.swift in Sources */,
+				5671134A283580AF00A01197 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
