@@ -24,9 +24,9 @@ class EmployeeTableViewCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
-    func configure(with model: Employee) {
-        nameLabel.text = model.name
-        ageLabel.text = model.age
-        salaryLabel.text = model.salary
+    func configure(with presentable: EmployeePresentable) {
+        nameLabel.text = presentable.name
+        ageLabel.text = presentable.age
+        salaryLabel.text = presentable.salary
     }
 }
