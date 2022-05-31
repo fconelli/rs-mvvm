@@ -21,5 +21,20 @@ class RS_MVVMTests: XCTestCase {
     
     let _ = try XCTUnwrap(initialVC as? EmployeesViewController)
   }
+  
+  func test_viewDidLoad_setupTable() throws {
+    let bundle = Bundle(for: EmployeesViewController.self)
+    let sb = UIStoryboard(name: "Main", bundle: bundle)
+    
+    let initialVC = sb.instantiateInitialViewController { coder in
+        let viewModel = EmployeesViewModel(EmployeeLocalService())
+        return EmployeesViewController(coder: coder, viewModel: viewModel)
+    }
+    let sut = try XCTUnwrap(initialVC as? EmployeesViewController)
+    
+    sut.loadViewIfNeeded()
+    
+    XCTAssertIdentical(sut.tableView.delegate, sut)
+  }
 
 }
