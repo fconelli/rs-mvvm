@@ -11,30 +11,26 @@ import XCTest
 class RS_MVVMTests: XCTestCase {
   
   func test_canInit() throws {
-    let bundle = Bundle(for: EmployeesViewController.self)
-    let sb = UIStoryboard(name: "Main", bundle: bundle)
-    
-    let initialVC = sb.instantiateInitialViewController { coder in
-        let viewModel = EmployeesViewModel(EmployeeLocalService())
-        return EmployeesViewController(coder: coder, viewModel: viewModel)
-    }
-    
-    let _ = try XCTUnwrap(initialVC as? EmployeesViewController)
+    let _ = try makeSUT()
   }
   
   func test_viewDidLoad_setupTable() throws {
-    let bundle = Bundle(for: EmployeesViewController.self)
-    let sb = UIStoryboard(name: "Main", bundle: bundle)
-    
-    let initialVC = sb.instantiateInitialViewController { coder in
-        let viewModel = EmployeesViewModel(EmployeeLocalService())
-        return EmployeesViewController(coder: coder, viewModel: viewModel)
-    }
-    let sut = try XCTUnwrap(initialVC as? EmployeesViewController)
+    let sut = try makeSUT()
     
     sut.loadViewIfNeeded()
     
     XCTAssertIdentical(sut.tableView.delegate, sut)
+    XCTAssertIdentical(sut.tableView.dataSource, sut)
   }
 
+  private func makeSUT() throws -> EmployeesViewController {
+    let bundle = Bundle(for: EmployeesViewController.self)
+    let sb = UIStoryboard(name: "Main", bundle: bundle)
+    
+    let initialVC = sb.instantiateInitialViewController { coder in
+        let viewModel = EmployeesViewModel(EmployeeLocalService())
+        return EmployeesViewController(coder: coder, viewModel: viewModel)
+    }
+    return try XCTUnwrap(initialVC as? EmployeesViewController)
+  }
 }
