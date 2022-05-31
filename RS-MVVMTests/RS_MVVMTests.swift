@@ -19,8 +19,8 @@ class RS_MVVMTests: XCTestCase {
     
     sut.loadViewIfNeeded()
     
-    XCTAssertIdentical(sut.tableView.delegate, sut)
-    XCTAssertIdentical(sut.tableView.dataSource, sut)
+    XCTAssertNotNil(sut.tableView.delegate)
+    XCTAssertNotNil(sut.tableView.dataSource)
   }
 
   private func makeSUT() throws -> EmployeesViewController {
