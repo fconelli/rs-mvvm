@@ -22,6 +22,14 @@ class RS_MVVMTests: XCTestCase {
     XCTAssertNotNil(sut.tableView.delegate)
     XCTAssertNotNil(sut.tableView.dataSource)
   }
+  
+  func test_viewDidLoad_initialTableState() throws {
+    let sut = try makeSUT()
+    
+    sut.loadViewIfNeeded()
+    
+    XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 0)
+  }
 
   private func makeSUT() throws -> EmployeesViewController {
     let bundle = Bundle(for: EmployeesViewController.self)
