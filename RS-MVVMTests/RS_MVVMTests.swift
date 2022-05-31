@@ -28,7 +28,7 @@ class RS_MVVMTests: XCTestCase {
     
     sut.loadViewIfNeeded()
     
-    XCTAssertEqual(sut.tableView.numberOfRows(inSection: 0), 0)
+    XCTAssertEqual(sut.numberOfEmployees(), 0)
   }
 
   private func makeSUT() throws -> EmployeesViewController {
@@ -40,5 +40,11 @@ class RS_MVVMTests: XCTestCase {
         return EmployeesViewController(coder: coder, viewModel: viewModel)
     }
     return try XCTUnwrap(initialVC as? EmployeesViewController)
+  }
+}
+
+private extension EmployeesViewController {
+  func numberOfEmployees() -> Int {
+    tableView.numberOfRows(inSection: 0)
   }
 }
