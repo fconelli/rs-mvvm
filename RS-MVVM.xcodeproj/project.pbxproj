@@ -19,8 +19,6 @@
 		5626442527CF9AB000A8D2C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5626442427CF9AB000A8D2C2 /* Assets.xcassets */; };
 		5626442827CF9AB000A8D2C2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5626442627CF9AB000A8D2C2 /* LaunchScreen.storyboard */; };
 		5626443327CF9AB000A8D2C2 /* RS_MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443227CF9AB000A8D2C2 /* RS_MVVMTests.swift */; };
-		5626443D27CF9AB000A8D2C2 /* RS_MVVMUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443C27CF9AB000A8D2C2 /* RS_MVVMUITests.swift */; };
-		5626443F27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */; };
 		5626445327CFA39200A8D2C2 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */; };
 		5626445527CFA3B600A8D2C2 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */; };
 		566BF7FC28368C8400BB1D39 /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF7FB28368C8400BB1D39 /* EmployeeViewModel.swift */; };
@@ -32,13 +30,6 @@
 
 /* Begin PBXContainerItemProxy section */
 		5626442F27CF9AB000A8D2C2 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 5626441027CF9AAE00A8D2C2 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 5626441727CF9AAE00A8D2C2;
-			remoteInfo = "RS-MVVM";
-		};
-		5626443927CF9AB000A8D2C2 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 5626441027CF9AAE00A8D2C2 /* Project object */;
 			proxyType = 1;
@@ -63,9 +54,6 @@
 		5626442927CF9AB000A8D2C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5626442E27CF9AB000A8D2C2 /* RS-MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RS-MVVMTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5626443227CF9AB000A8D2C2 /* RS_MVVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVMTests.swift; sourceTree = "<group>"; };
-		5626443827CF9AB000A8D2C2 /* RS-MVVMUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "RS-MVVMUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5626443C27CF9AB000A8D2C2 /* RS_MVVMUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVMUITests.swift; sourceTree = "<group>"; };
-		5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVMUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
 		566BF7FB28368C8400BB1D39 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
@@ -90,13 +78,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5626443527CF9AB000A8D2C2 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -106,7 +87,6 @@
 				560422BA27D59FA70073C0D5 /* demo.json */,
 				5626441A27CF9AAE00A8D2C2 /* RS-MVVM */,
 				5626443127CF9AB000A8D2C2 /* RS-MVVMTests */,
-				5626443B27CF9AB000A8D2C2 /* RS-MVVMUITests */,
 				5626441927CF9AAE00A8D2C2 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -116,7 +96,6 @@
 			children = (
 				5626441827CF9AAE00A8D2C2 /* RS-MVVM.app */,
 				5626442E27CF9AB000A8D2C2 /* RS-MVVMTests.xctest */,
-				5626443827CF9AB000A8D2C2 /* RS-MVVMUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -145,15 +124,6 @@
 				5626443227CF9AB000A8D2C2 /* RS_MVVMTests.swift */,
 			);
 			path = "RS-MVVMTests";
-			sourceTree = "<group>";
-		};
-		5626443B27CF9AB000A8D2C2 /* RS-MVVMUITests */ = {
-			isa = PBXGroup;
-			children = (
-				5626443C27CF9AB000A8D2C2 /* RS_MVVMUITests.swift */,
-				5626443E27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift */,
-			);
-			path = "RS-MVVMUITests";
 			sourceTree = "<group>";
 		};
 		5626444B27CF9B8B00A8D2C2 /* Helpers */ = {
@@ -265,24 +235,6 @@
 			productReference = 5626442E27CF9AB000A8D2C2 /* RS-MVVMTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		5626443727CF9AB000A8D2C2 /* RS-MVVMUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 5626444827CF9AB000A8D2C2 /* Build configuration list for PBXNativeTarget "RS-MVVMUITests" */;
-			buildPhases = (
-				5626443427CF9AB000A8D2C2 /* Sources */,
-				5626443527CF9AB000A8D2C2 /* Frameworks */,
-				5626443627CF9AB000A8D2C2 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				5626443A27CF9AB000A8D2C2 /* PBXTargetDependency */,
-			);
-			name = "RS-MVVMUITests";
-			productName = "RS-MVVMUITests";
-			productReference = 5626443827CF9AB000A8D2C2 /* RS-MVVMUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -297,10 +249,6 @@
 						CreatedOnToolsVersion = 13.2.1;
 					};
 					5626442D27CF9AB000A8D2C2 = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 5626441727CF9AAE00A8D2C2;
-					};
-					5626443727CF9AB000A8D2C2 = {
 						CreatedOnToolsVersion = 13.2.1;
 						TestTargetID = 5626441727CF9AAE00A8D2C2;
 					};
@@ -321,7 +269,6 @@
 			targets = (
 				5626441727CF9AAE00A8D2C2 /* RS-MVVM */,
 				5626442D27CF9AB000A8D2C2 /* RS-MVVMTests */,
-				5626443727CF9AB000A8D2C2 /* RS-MVVMUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -340,13 +287,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		5626442C27CF9AB000A8D2C2 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		5626443627CF9AB000A8D2C2 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -384,15 +324,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		5626443427CF9AB000A8D2C2 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				5626443D27CF9AB000A8D2C2 /* RS_MVVMUITests.swift in Sources */,
-				5626443F27CF9AB000A8D2C2 /* RS_MVVMUITestsLaunchTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -400,11 +331,6 @@
 			isa = PBXTargetDependency;
 			target = 5626441727CF9AAE00A8D2C2 /* RS-MVVM */;
 			targetProxy = 5626442F27CF9AB000A8D2C2 /* PBXContainerItemProxy */;
-		};
-		5626443A27CF9AB000A8D2C2 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 5626441727CF9AAE00A8D2C2 /* RS-MVVM */;
-			targetProxy = 5626443927CF9AB000A8D2C2 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -560,6 +486,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -590,6 +517,7 @@
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -611,7 +539,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 85TS5C8J8S;
+				DEVELOPMENT_TEAM = SU7AR69LZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -631,7 +559,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 85TS5C8J8S;
+				DEVELOPMENT_TEAM = SU7AR69LZT;
 				GENERATE_INFOPLIST_FILE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
 				MARKETING_VERSION = 1.0;
@@ -641,42 +569,6 @@
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/RS-MVVM.app/RS-MVVM";
-			};
-			name = Release;
-		};
-		5626444927CF9AB000A8D2C2 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 85TS5C8J8S;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "rootstrap.RS-MVVMUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "RS-MVVM";
-			};
-			name = Debug;
-		};
-		5626444A27CF9AB000A8D2C2 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 85TS5C8J8S;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "rootstrap.RS-MVVMUITests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = "RS-MVVM";
 			};
 			name = Release;
 		};
@@ -706,15 +598,6 @@
 			buildConfigurations = (
 				5626444627CF9AB000A8D2C2 /* Debug */,
 				5626444727CF9AB000A8D2C2 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		5626444827CF9AB000A8D2C2 /* Build configuration list for PBXNativeTarget "RS-MVVMUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5626444927CF9AB000A8D2C2 /* Debug */,
-				5626444A27CF9AB000A8D2C2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
