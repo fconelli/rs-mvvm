@@ -37,6 +37,7 @@ class RS_MVVMTests: XCTestCase {
     sut.loadViewIfNeeded()
     
     XCTAssertEqual(sut.numberOfEmployees(), 1)
+    XCTAssertEqual(sut.name(atIndex: 0), "Employee1")
   }
 
   private func makeSUT() throws -> EmployeesViewController {
@@ -54,6 +55,13 @@ class RS_MVVMTests: XCTestCase {
 private extension EmployeesViewController {
   func numberOfEmployees() -> Int {
     tableView.numberOfRows(inSection: 0)
+  }
+  
+  func name(atIndex index: Int) -> String? {
+    let ds = tableView.dataSource
+    let indexPath = IndexPath(row: index, section: 0)
+    let cell = ds?.tableView(tableView, cellForRowAt: indexPath) as? EmployeeTableViewCell
+    return cell?.nameLabel.text
   }
 }
 
