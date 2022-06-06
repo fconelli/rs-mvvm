@@ -70,8 +70,12 @@ private class EmployeeServiceStub: EmployeeService {
  
   func getEmployees(completion: @escaping ([Employee], Error?) -> Void) {
     completion([
-      Employee(id: "0", name: "Employee0", salary: "0.0", age: "30"),
-      Employee(id: "1", name: "Employee1", salary: "0.0", age: "30")
+      makeEmployee(name: "Employee0"),
+      makeEmployee(name: "Employee1")
     ], nil)
   }
+}
+
+private func makeEmployee(name: String) -> Employee {
+  Employee(id: "0", name: name, salary: "0.0", age: "30")
 }
