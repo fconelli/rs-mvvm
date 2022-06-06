@@ -36,8 +36,9 @@ class RS_MVVMTests: XCTestCase {
     
     sut.loadViewIfNeeded()
     
-    XCTAssertEqual(sut.numberOfEmployees(), 1)
-    XCTAssertEqual(sut.name(atIndex: 0), "Employee1")
+    XCTAssertEqual(sut.numberOfEmployees(), 2)
+    XCTAssertEqual(sut.name(atIndex: 0), "Employee0")
+    XCTAssertEqual(sut.name(atIndex: 1), "Employee1")
   }
 
   private func makeSUT() throws -> EmployeesViewController {
@@ -68,6 +69,9 @@ private extension EmployeesViewController {
 private class EmployeeServiceStub: EmployeeService {
  
   func getEmployees(completion: @escaping ([Employee], Error?) -> Void) {
-    completion([Employee(id: "0", name: "Employee1", salary: "0.0", age: "30")], nil)
+    completion([
+      Employee(id: "0", name: "Employee0", salary: "0.0", age: "30"),
+      Employee(id: "1", name: "Employee1", salary: "0.0", age: "30")
+    ], nil)
   }
 }
