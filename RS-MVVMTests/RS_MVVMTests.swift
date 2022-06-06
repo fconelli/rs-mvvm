@@ -23,12 +23,20 @@ class RS_MVVMTests: XCTestCase {
     XCTAssertNotNil(sut.tableView.dataSource)
   }
   
-  func test_viewDidLoad_initialTableState() throws {
+//  func test_viewDidLoad_initialTableState() throws {
+//    let sut = try makeSUT()
+//
+//    sut.loadViewIfNeeded()
+//
+//    XCTAssertEqual(sut.numberOfEmployees(), 0)
+//  }
+  
+  func test_viewDidLoad_rendersEmployeesFromAPI() throws {
     let sut = try makeSUT()
     
     sut.loadViewIfNeeded()
     
-    XCTAssertEqual(sut.numberOfEmployees(), 0)
+    XCTAssertEqual(sut.numberOfEmployees(), 1)
   }
 
   private func makeSUT() throws -> EmployeesViewController {
@@ -36,7 +44,7 @@ class RS_MVVMTests: XCTestCase {
     let sb = UIStoryboard(name: "Main", bundle: bundle)
     
     let initialVC = sb.instantiateInitialViewController { coder in
-        let viewModel = EmployeesViewModel(EmployeeLocalService())
+        let viewModel = EmployeesViewModel(EmployeeServiceStub())
         return EmployeesViewController(coder: coder, viewModel: viewModel)
     }
     return try XCTUnwrap(initialVC as? EmployeesViewController)
@@ -46,5 +54,12 @@ class RS_MVVMTests: XCTestCase {
 private extension EmployeesViewController {
   func numberOfEmployees() -> Int {
     tableView.numberOfRows(inSection: 0)
+  }
+}
+
+private class EmployeeServiceStub: EmployeeService {
+ 
+  func getEmployees(completion: @escaping ([Employee], Error?) -> Void) {
+    completion([Employee(id: "0", name: "Employee1", salary: "0.0", age: "30")], nil)
   }
 }

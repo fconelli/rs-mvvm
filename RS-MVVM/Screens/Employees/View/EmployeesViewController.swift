@@ -54,9 +54,7 @@ class EmployeesViewController: UIViewController {
     
     func fetchEmployees() {
         startLoading()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) { [weak self] in
-            self?.viewModel.getEmployees()
-        }
+        viewModel.getEmployees()
     }
   
     func startLoading() {
