@@ -17,6 +17,7 @@ class EmployeesViewController: UIViewController {
   
     private let viewModel: EmployeesViewModel
     private var subscriptions = Set<AnyCancellable>()
+    private let refreshControl = UIRefreshControl()
     
     // MARK: - Initialization
 
@@ -40,6 +41,10 @@ class EmployeesViewController: UIViewController {
     
     private func setupTableView() {
         tableView.register(UINib(nibName: "EmployeeTableViewCell", bundle: nil), forCellReuseIdentifier: "EmployeeTableViewCell")
+        tableView.refreshControl = refreshControl
+      
+        // Configure Refresh Control
+        refreshControl.addTarget(self, action: #selector(refreshEmployeesData(_:)), for: .valueChanged)
     }
     
     private func setupBindings() {
@@ -48,6 +53,7 @@ class EmployeesViewController: UIViewController {
           .sink { [weak self] _ in
               self?.tableView.reloadData()
               self?.stopLoading()
+              self?.refreshControl.endRefreshing()
           }
           .store(in: &subscriptions)
     }
@@ -55,6 +61,10 @@ class EmployeesViewController: UIViewController {
     func fetchEmployees() {
         startLoading()
         viewModel.getEmployees()
+    }
+  
+    @objc private func refreshEmployeesData(_ sender: Any) {
+        fetchEmployees()
     }
   
     func startLoading() {

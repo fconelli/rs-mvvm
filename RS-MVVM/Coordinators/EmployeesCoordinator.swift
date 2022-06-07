@@ -24,7 +24,7 @@ class EmployeesCoordinator {
     func start() {
         // Initialize Root View Controller for this coordinator
         let rootViewController = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController { coder in
-            let viewModel = EmployeesViewModel(EmployeeLocalService())
+            let viewModel = EmployeesViewModel(EmployeeRemoteService())
             return EmployeesViewController(coder: coder, viewModel: viewModel)
         }
       
