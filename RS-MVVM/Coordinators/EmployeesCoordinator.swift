@@ -7,7 +7,7 @@
 
 import UIKit
 
-class EmployeesCoordinator {
+class EmployeesCoordinator: Coordinator {
 
     // MARK: - Properties
 
@@ -28,9 +28,16 @@ class EmployeesCoordinator {
             return EmployeesViewController(coder: coder, viewModel: viewModel)
         }
       
-        if let vc = rootViewController {
+        if let vc = rootViewController as? EmployeesViewController {
+            vc.coordinator = self
             navigationController.pushViewController(vc, animated: true)
         }
+    }
+  
+    func goToDetail() {
+      if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EmployeeDetailViewController") as? EmployeeDetailViewController {
+          navigationController.pushViewController(vc, animated: true)
+      }
     }
     
 }

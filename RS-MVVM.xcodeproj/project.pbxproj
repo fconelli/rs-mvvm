@@ -21,6 +21,7 @@
 		5626443327CF9AB000A8D2C2 /* RS_MVVMTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626443227CF9AB000A8D2C2 /* RS_MVVMTests.swift */; };
 		5626445327CFA39200A8D2C2 /* EmployeesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */; };
 		5626445527CFA3B600A8D2C2 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */; };
+		562E3B5D28537CB80093E9BE /* EmployeeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3B5C28537CB80093E9BE /* EmployeeDetailViewController.swift */; };
 		566BF7FC28368C8400BB1D39 /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF7FB28368C8400BB1D39 /* EmployeeViewModel.swift */; };
 		566BF7FE28368FC500BB1D39 /* EmployeePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF7FD28368FC500BB1D39 /* EmployeePresentable.swift */; };
 		5671134A283580AF00A01197 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56711349283580AF00A01197 /* Coordinator.swift */; };
@@ -56,6 +57,7 @@
 		5626443227CF9AB000A8D2C2 /* RS_MVVMTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVMTests.swift; sourceTree = "<group>"; };
 		5626445227CFA39200A8D2C2 /* EmployeesViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewController.swift; sourceTree = "<group>"; };
 		5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
+		562E3B5C28537CB80093E9BE /* EmployeeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewController.swift; sourceTree = "<group>"; };
 		566BF7FB28368C8400BB1D39 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
 		566BF7FD28368FC500BB1D39 /* EmployeePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeePresentable.swift; sourceTree = "<group>"; };
 		56711349283580AF00A01197 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 				5620CA2E27D62236004A7F2B /* EmployeeTableViewCell.swift */,
 				5620CA2F27D62236004A7F2B /* EmployeeTableViewCell.xib */,
 				566BF7FD28368FC500BB1D39 /* EmployeePresentable.swift */,
+				562E3B5C28537CB80093E9BE /* EmployeeDetailViewController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -305,6 +308,7 @@
 				5620CA3027D62236004A7F2B /* EmployeeTableViewCell.swift in Sources */,
 				5671134C283580D000A01197 /* MainCoordinator.swift in Sources */,
 				5671134E2835814800A01197 /* EmployeesCoordinator.swift in Sources */,
+				562E3B5D28537CB80093E9BE /* EmployeeDetailViewController.swift in Sources */,
 				566BF7FE28368FC500BB1D39 /* EmployeePresentable.swift in Sources */,
 				560422B927D570D30073C0D5 /* EmployeeService.swift in Sources */,
 				5626441C27CF9AAE00A8D2C2 /* AppDelegate.swift in Sources */,

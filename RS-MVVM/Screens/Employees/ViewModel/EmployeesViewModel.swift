@@ -29,7 +29,7 @@ class EmployeesViewModel {
         }
     }
     
-    func employeeViewModelForEmployee(at indexPath: IndexPath) -> EmployeeViewModel {
+    func employeeViewModel(at indexPath: IndexPath) -> EmployeeViewModel {
         return EmployeeViewModel(employee: employees[indexPath.row])
     }
 }

@@ -18,6 +18,7 @@ class EmployeesViewController: UIViewController {
     private let viewModel: EmployeesViewModel
     private var subscriptions = Set<AnyCancellable>()
     private let refreshControl = UIRefreshControl()
+    weak var coordinator: EmployeesCoordinator?
     
     // MARK: - Initialization
 
@@ -89,10 +90,12 @@ extension EmployeesViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as? EmployeeTableViewCell
         else { fatalError("xib does not exists") }
       
-        let viewModel = viewModel.employeeViewModelForEmployee(at: indexPath)
+        let viewModel = viewModel.employeeViewModel(at: indexPath)
         cell.configure(with: viewModel)
         return cell
     }
     
-    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        coordinator?.goToDetail()
+    }
 }
