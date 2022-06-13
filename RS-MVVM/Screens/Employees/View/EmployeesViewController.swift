@@ -90,8 +90,9 @@ extension EmployeesViewController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "EmployeeTableViewCell", for: indexPath) as? EmployeeTableViewCell
         else { fatalError("xib does not exists") }
       
-        let viewModel = viewModel.employeeViewModel(at: indexPath)
-        cell.configure(with: viewModel)
+        if let viewModel = viewModel.employeeViewModel(at: indexPath) {
+            cell.configure(with: viewModel)
+        }
         return cell
     }
     
