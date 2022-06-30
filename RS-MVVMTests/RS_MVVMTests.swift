@@ -43,6 +43,17 @@ class RS_MVVMTests: XCTestCase {
     XCTAssertEqual(sut.name(atIndex: 1), "Employee1")
     XCTAssertEqual(sut.name(atIndex: 2), "Employee2")
   }
+    
+    func test_viewDidLoad_rendersEmptyListOnServiceError() throws {
+      let service = makeServiceWithError()
+      let sut = try makeSUT(service: service)
+
+      sut.loadViewIfNeeded()
+
+      XCTAssertEqual(sut.numberOfEmployees(), 0)
+    }
+  
+  // MARK: - Helpers
 
   private func makeSUT(service: EmployeeService? = nil) throws -> EmployeesViewController {
     let bundle = Bundle(for: EmployeesViewController.self)
@@ -71,6 +82,12 @@ class RS_MVVMTests: XCTestCase {
     ]
     return service
   }
+  
+  private func makeServiceWithError() -> EmployeeService {
+    let service = EmployeeServiceStub()
+    service.success = false
+    return service
+  }
 }
 
 private extension EmployeesViewController {
@@ -90,8 +107,13 @@ private class EmployeeServiceStub: EmployeeService {
   
   var employees = [Employee]()
   var delay = 0
+  var success = true
  
   func getEmployees(completion: @escaping ([Employee], Error?) -> Void) {
+    if !success {
+      completion([], NSError())
+      return
+    }
     if delay == 0 {
       completion(employees, nil)
       return
