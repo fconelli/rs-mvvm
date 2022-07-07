@@ -36,15 +36,25 @@ class EmployeesCoordinator: Coordinator {
     }
   
     func goToDetail() {
-      if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EmployeeDetailViewController") as? EmployeeDetailViewController {
-          navigationController.pushViewController(vc, animated: true)
-      }
+//        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EmployeeDetailViewController") as? EmployeeDetailViewController {
+//            navigationController.pushViewController(vc, animated: true)
+//        }
+        
+        let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "EmployeeDetailViewController") { coder in
+            let viewModel = EmployeeDetailViewModel(EmployeeRemoteService())
+            let vc = EmployeeDetailViewController(coder: coder, viewModel: viewModel)
+            return vc
+        }
+        
+        if let vc = detailVC as? EmployeeDetailViewController {
+            navigationController.pushViewController(vc, animated: true)
+        }
     }
     
 }
 
 extension EmployeesCoordinator: EmployeesViewControllerDelegate {
-    func showEmployeeDetail(_ controller: EmployeesViewController) {
+    func showEmployeeDetail(_ controller: EmployeesViewController, _ employee: Employee) {
         goToDetail()
     }
     

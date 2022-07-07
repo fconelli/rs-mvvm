@@ -10,7 +10,7 @@ import UIKit
 import Combine
 
 protocol EmployeesViewControllerDelegate: AnyObject {
-    func showEmployeeDetail(_ controller: EmployeesViewController)
+    func showEmployeeDetail(_ controller: EmployeesViewController, _ employee: Employee)
 }
 
 class EmployeesViewController: UIViewController {
@@ -100,6 +100,9 @@ extension EmployeesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.delegate?.showEmployeeDetail(self)
+        
+        if let viewModel = viewModel.employeeViewModel(at: indexPath) {
+            self.delegate?.showEmployeeDetail(self, viewModel.employee)
+        }
     }
 }

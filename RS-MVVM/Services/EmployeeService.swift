@@ -9,6 +9,7 @@ import Foundation
 
 protocol EmployeeService {
     func getEmployees(completion: @escaping ([Employee], Error?) -> Void)
+    func getEmployeeDetail(for employeeId: Int, completion: @escaping (Employee, Error?) -> Void)
 }
 
 class EmployeeRemoteService: EmployeeService {
@@ -27,6 +28,10 @@ class EmployeeRemoteService: EmployeeService {
                 completion([], nil)
             }
         }
+    }
+    
+    func getEmployeeDetail(for employeeId: Int, completion: @escaping (Employee, Error?) -> Void) {
+        
     }
     
     private func loadJson(fromURLString urlString: String,
@@ -55,6 +60,10 @@ class EmployeeLocalService: EmployeeService {
         } else {
             completion([], nil)
         }
+    }
+    
+    func getEmployeeDetail(for employeeId: Int, completion: @escaping (Employee, Error?) -> Void) {
+        
     }
     
     private func loadJSON(fromFile filename: String) -> Data? {
