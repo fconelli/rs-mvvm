@@ -9,9 +9,6 @@ import Foundation
 import UIKit
 import Combine
 
-protocol EmployeesViewControllerDelegate: AnyObject {
-    func showEmployeeDetail(_ controller: EmployeesViewController, _ employee: Employee)
-}
 
 class EmployeesViewController: UIViewController {
 
@@ -21,7 +18,6 @@ class EmployeesViewController: UIViewController {
     private let viewModel: EmployeesViewModel
     private var subscriptions = Set<AnyCancellable>()
     private let refreshControl = UIRefreshControl()
-    var delegate: EmployeesViewControllerDelegate?
     
     // MARK: - Initialization
 
@@ -100,9 +96,6 @@ extension EmployeesViewController: UITableViewDataSource, UITableViewDelegate {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if let viewModel = viewModel.employeeViewModel(at: indexPath) {
-            self.delegate?.showEmployeeDetail(self, viewModel.employee)
-        }
+        viewModel.selectEmployee(at: indexPath.row)
     }
 }

@@ -25,8 +25,8 @@ class EmployeesCoordinator: Coordinator {
         // Initialize Root View Controller for this coordinator
         let rootViewController = UIStoryboard(name: "Main", bundle: .main).instantiateInitialViewController { coder in
             let viewModel = EmployeesViewModel(EmployeeRemoteService())
+            viewModel.delegate = self
             let vc = EmployeesViewController(coder: coder, viewModel: viewModel)
-            vc?.delegate = self
             return vc
         }
       
@@ -35,13 +35,14 @@ class EmployeesCoordinator: Coordinator {
         }
     }
   
-    func goToDetail() {
+    func goToDetail(_ employeeId: String) {
 //        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EmployeeDetailViewController") as? EmployeeDetailViewController {
 //            navigationController.pushViewController(vc, animated: true)
 //        }
         
         let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "EmployeeDetailViewController") { coder in
             let viewModel = EmployeeDetailViewModel(EmployeeRemoteService())
+            viewModel.employeeId = employeeId
             let vc = EmployeeDetailViewController(coder: coder, viewModel: viewModel)
             return vc
         }
@@ -53,9 +54,9 @@ class EmployeesCoordinator: Coordinator {
     
 }
 
-extension EmployeesCoordinator: EmployeesViewControllerDelegate {
-    func showEmployeeDetail(_ controller: EmployeesViewController, _ employee: Employee) {
-        goToDetail()
+extension EmployeesCoordinator: EmployeesDelegate {
+    func showEmployeeDetail(_ employeeId: String) {
+        goToDetail(employeeId)
     }
     
     

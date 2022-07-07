@@ -10,7 +10,7 @@ import Combine
 
 class EmployeeDetailViewModel {
     
-    var employeeId: Int = 0
+    var employeeId: String = "0"
     @Published private(set) var employee: Employee?
     private let service: EmployeeService
     
@@ -25,6 +25,6 @@ class EmployeeDetailViewModel {
 //            self?.employee = employee
 //        }
         
-        
+        print("FETCHING EMPLOYEE DATA WITH ID: \(employeeId) .....")
     }
 }
