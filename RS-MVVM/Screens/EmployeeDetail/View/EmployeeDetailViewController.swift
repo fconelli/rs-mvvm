@@ -11,6 +11,7 @@ import Combine
 class EmployeeDetailViewController: UIViewController {
     
     private let viewModel: EmployeeDetailViewModel
+    private var subscriptions = Set<AnyCancellable>()
     
     // MARK: - Initialization
 
@@ -27,10 +28,24 @@ class EmployeeDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        setupBindings()
         fetchEmployeeData()
+    }
+    
+    private func setupBindings() {
+        viewModel.$employee
+          .receive(on: DispatchQueue.main)
+          .sink { [weak self] _ in
+              self?.updateUI()
+          }
+          .store(in: &subscriptions)
     }
   
     func fetchEmployeeData() {
         viewModel.fetchEmployeeData()
+    }
+    
+    private func updateUI() {
+        // TODO: display employee data on screen
     }
 }

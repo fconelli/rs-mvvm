@@ -9,7 +9,21 @@ import Foundation
 
 protocol EmployeeService {
     func getEmployees(completion: @escaping ([Employee], Error?) -> Void)
-    func getEmployeeDetail(for employeeId: Int, completion: @escaping (Employee, Error?) -> Void)
+    func getEmployeeDetail(for employeeId: String, completion: @escaping (Employee?, Error?) -> Void)
+}
+
+extension EmployeeService {
+    func getEmployeeDetail(for employeeId: String, completion: @escaping (Employee?, Error?) -> Void) {
+        getEmployees() { employees, error in
+            guard error == nil else { return }
+
+            if let employee = employees.first(where: { $0.id == employeeId }) {
+                completion(employee, nil)
+            } else {
+                completion(nil, NSError(domain: "No employee found for ID \(employeeId)", code: 0))
+            }
+        }
+    }
 }
 
 class EmployeeRemoteService: EmployeeService {
@@ -28,10 +42,6 @@ class EmployeeRemoteService: EmployeeService {
                 completion([], nil)
             }
         }
-    }
-    
-    func getEmployeeDetail(for employeeId: Int, completion: @escaping (Employee, Error?) -> Void) {
-        
     }
     
     private func loadJson(fromURLString urlString: String,
@@ -60,10 +70,6 @@ class EmployeeLocalService: EmployeeService {
         } else {
             completion([], nil)
         }
-    }
-    
-    func getEmployeeDetail(for employeeId: Int, completion: @escaping (Employee, Error?) -> Void) {
-        
     }
     
     private func loadJSON(fromFile filename: String) -> Data? {

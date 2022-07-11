@@ -19,12 +19,12 @@ class EmployeeDetailViewModel {
     }
     
     func fetchEmployeeData() {
-//        service.getEmployeeDetail(for: employeeId) { [weak self] employee, error in
-//            guard error == nil else { return }
-//
-//            self?.employee = employee
-//        }
-        
         print("FETCHING EMPLOYEE DATA WITH ID: \(employeeId) .....")
+        
+        service.getEmployeeDetail(for: employeeId) { [weak self] employee, error in
+            guard error == nil else { return }
+
+            self?.employee = employee
+        }
     }
 }
