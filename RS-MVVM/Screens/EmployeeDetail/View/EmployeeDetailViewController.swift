@@ -10,6 +10,8 @@ import Combine
 
 class EmployeeDetailViewController: UIViewController {
     
+    @IBOutlet weak var employeeNameLabel: UILabel!
+    
     private let viewModel: EmployeeDetailViewModel
     private var subscriptions = Set<AnyCancellable>()
     
@@ -47,5 +49,6 @@ class EmployeeDetailViewController: UIViewController {
     
     private func updateUI() {
         // TODO: display employee data on screen
+        employeeNameLabel.text = viewModel.employeeName
     }
 }

@@ -8,19 +8,22 @@
 import Foundation
 
 protocol EmployeeService {
+    typealias Result = Swift.Result<Employee, Error>
+    
     func getEmployees(completion: @escaping ([Employee], Error?) -> Void)
-    func getEmployeeDetail(for employeeId: String, completion: @escaping (Employee?, Error?) -> Void)
+    func getEmployeeDetail(for employeeId: String, completion: @escaping (Result) -> Void)
 }
 
 extension EmployeeService {
-    func getEmployeeDetail(for employeeId: String, completion: @escaping (Employee?, Error?) -> Void) {
+    func getEmployeeDetail(for employeeId: String, completion: @escaping (Result) -> Void) {
         getEmployees() { employees, error in
             guard error == nil else { return }
 
             if let employee = employees.first(where: { $0.id == employeeId }) {
-                completion(employee, nil)
+                completion(.success(employee))
             } else {
-                completion(nil, NSError(domain: "No employee found for ID \(employeeId)", code: 0))
+                let error = NSError(domain: "No employee found for ID \(employeeId)", code: 0)
+                completion(.failure(error))
             }
         }
     }
