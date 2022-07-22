@@ -11,6 +11,7 @@ import Combine
 class EmployeeDetailViewController: UIViewController {
     
     @IBOutlet weak var employeeNameLabel: UILabel!
+    @IBOutlet weak var employeePhotoImageView: UIImageView!
     
     private let viewModel: EmployeeDetailViewModel
     private var subscriptions = Set<AnyCancellable>()
@@ -49,6 +50,23 @@ class EmployeeDetailViewController: UIViewController {
     
     private func updateUI() {
         // TODO: display employee data on screen
-        employeeNameLabel.text = viewModel.employeeName
+        employeeNameLabel.text = viewModel.employee?.name
+        if let photoURL = URL(string: viewModel.employee?.picture ?? "") {
+            employeePhotoImageView.load(url: photoURL)
+        }
+    }
+}
+
+extension UIImageView {
+    func load(url: URL) {
+        DispatchQueue.global().async { [weak self] in
+            if let data = try? Data(contentsOf: url) {
+                if let image = UIImage(data: data) {
+                    DispatchQueue.main.async {
+                        self?.image = image
+                    }
+                }
+            }
+        }
     }
 }

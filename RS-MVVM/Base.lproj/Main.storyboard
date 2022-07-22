@@ -56,22 +56,33 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCL-xR-Ite">
-                                <rect key="frame" x="20" y="64" width="73.5" height="37"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KCL-xR-Ite">
+                                <rect key="frame" x="20" y="64" width="374" height="37"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle0"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bqZ-cH-fBZ">
+                                <rect key="frame" x="87" y="151" width="240" height="240"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="240" id="1eB-Hn-vfX"/>
+                                    <constraint firstAttribute="height" constant="240" id="KXn-uT-Lsz"/>
+                                </constraints>
+                            </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="yPU-Si-qFd"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="bqZ-cH-fBZ" firstAttribute="top" secondItem="KCL-xR-Ite" secondAttribute="bottom" constant="50" id="Nsx-yv-ePQ"/>
+                            <constraint firstItem="bqZ-cH-fBZ" firstAttribute="centerX" secondItem="iii-lC-oW0" secondAttribute="centerX" id="Oht-mW-Ai7"/>
                             <constraint firstItem="KCL-xR-Ite" firstAttribute="top" secondItem="yPU-Si-qFd" secondAttribute="top" constant="20" id="aDF-Qe-4sW"/>
                             <constraint firstItem="KCL-xR-Ite" firstAttribute="leading" secondItem="yPU-Si-qFd" secondAttribute="leading" constant="20" id="dlj-tV-G4L"/>
+                            <constraint firstItem="yPU-Si-qFd" firstAttribute="trailing" secondItem="KCL-xR-Ite" secondAttribute="trailing" constant="20" id="jPI-A2-noa"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="employeeNameLabel" destination="KCL-xR-Ite" id="ehd-Tc-NNn"/>
+                        <outlet property="employeePhotoImageView" destination="bqZ-cH-fBZ" id="HPg-eE-Bdj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bi0-Ov-1de" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

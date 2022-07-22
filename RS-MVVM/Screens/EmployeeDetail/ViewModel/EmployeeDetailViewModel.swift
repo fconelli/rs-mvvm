@@ -10,11 +10,12 @@ import Combine
 
 class EmployeeDetailViewModel {
     
-    var employeeId: String = "0"
-    @Published private(set) var employee: Employee?
+    private let employeeId: String
+    @Published private(set) var employee: EmployeePresentable?
     private let service: EmployeeService
     
-    init(_ service: EmployeeService) {
+    init(_ employeeId: String, _ service: EmployeeService) {
+        self.employeeId = employeeId
         self.service = service
     }
     
@@ -24,16 +25,15 @@ class EmployeeDetailViewModel {
         service.getEmployeeDetail(for: employeeId) { [weak self] result in
             switch result {
             case .success(let employee):
-                self?.employee = employee
+                self?.employee = self?.employeeViewModel(for: employee)
             case .failure(let _):
                 // TODO: display error message
                 break
             }
-            
         }
     }
     
-    var employeeName: String {
-        employee?.name ?? ""
+    func employeeViewModel(for employee: Employee) -> EmployeeViewModel {
+        return EmployeeViewModel(employee: employee)
     }
 }

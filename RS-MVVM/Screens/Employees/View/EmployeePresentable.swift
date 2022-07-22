@@ -8,10 +8,12 @@
 import Foundation
 
 protocol EmployeePresentable {
-  
-  var name: String { get }
-
-  var age: String { get }
-  
-  var salary: String { get }
+    
+    var name: String { get }
+    
+    var age: String { get }
+    
+    var salary: String { get }
+    
+    var picture: String { get }
 }

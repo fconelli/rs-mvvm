@@ -22,4 +22,8 @@ struct EmployeeViewModel: EmployeePresentable {
     var salary: String {
         return employee.salary
     }
+    
+    var picture: String {
+        "https://static.vecteezy.com/system/resources/thumbnails/006/487/917/small_2x/man-avatar-icon-free-vector.jpg"
+    }
 }

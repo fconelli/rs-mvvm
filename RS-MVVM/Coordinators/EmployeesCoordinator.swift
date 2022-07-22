@@ -36,13 +36,9 @@ class EmployeesCoordinator: Coordinator {
     }
   
     func goToDetail(_ employeeId: String) {
-//        if let vc = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: "EmployeeDetailViewController") as? EmployeeDetailViewController {
-//            navigationController.pushViewController(vc, animated: true)
-//        }
         
         let detailVC = UIStoryboard(name: "Main", bundle: .main).instantiateViewController(identifier: "EmployeeDetailViewController") { coder in
-            let viewModel = EmployeeDetailViewModel(EmployeeRemoteService())
-            viewModel.employeeId = employeeId
+            let viewModel = EmployeeDetailViewModel(employeeId, EmployeeRemoteService())
             let vc = EmployeeDetailViewController(coder: coder, viewModel: viewModel)
             return vc
         }
