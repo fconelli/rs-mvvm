@@ -37,6 +37,7 @@ class EmployeeDetailViewController: UIViewController {
     
     private func setupBindings() {
         viewModel.$employee
+            .dropFirst()    // https://stackoverflow.com/a/60568944
           .receive(on: DispatchQueue.main)
           .sink { [weak self] _ in
               self?.updateUI()
@@ -49,7 +50,6 @@ class EmployeeDetailViewController: UIViewController {
     }
     
     private func updateUI() {
-        // TODO: display employee data on screen
         employeeNameLabel.text = viewModel.employee?.name
         if let photoURL = URL(string: viewModel.employee?.picture ?? "") {
             employeePhotoImageView.load(url: photoURL)
