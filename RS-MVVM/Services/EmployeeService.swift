@@ -12,6 +12,9 @@ protocol EmployeeService {
     
     func getEmployees(completion: @escaping ([Employee], Error?) -> Void)
     func getEmployeeDetail(for employeeId: String, completion: @escaping (Result) -> Void)
+
+    func getEmployeeDetail(for employeeId: String) async -> Result
+    func getEmployeesList() async -> [Employee]
 }
 
 extension EmployeeService {
@@ -24,6 +27,22 @@ extension EmployeeService {
             } else {
                 let error = NSError(domain: "No employee found for ID \(employeeId)", code: 0)
                 completion(.failure(error))
+            }
+        }
+    }
+    
+    func getEmployeeDetail(for employeeId: String) async -> Result {
+        await withCheckedContinuation { continuation in
+            getEmployeeDetail(for: employeeId) { result in
+                continuation.resume(returning: result)
+            }
+        }
+    }
+    
+    func getEmployeesList() async -> [Employee] {
+        await withCheckedContinuation { continuation in
+            getEmployees() { result, error in
+                continuation.resume(returning: result)
             }
         }
     }

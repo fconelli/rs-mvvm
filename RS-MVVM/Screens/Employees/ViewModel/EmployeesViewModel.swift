@@ -27,10 +27,9 @@ class EmployeesViewModel {
     }
     
     func getEmployees() {
-        service.getEmployees() { [weak self] employees, error in
-            guard error == nil else { return }
-
-            self?.employees = employees
+        Task(priority: .medium) {
+            let employees = await service.getEmployeesList()
+            self.employees = employees
         }
     }
     

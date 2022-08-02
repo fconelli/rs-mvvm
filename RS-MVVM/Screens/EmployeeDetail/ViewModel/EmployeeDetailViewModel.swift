@@ -20,12 +20,11 @@ class EmployeeDetailViewModel {
     }
     
     func fetchEmployeeData() {
-        print("FETCHING EMPLOYEE DATA WITH ID: \(employeeId) .....")
-        
-        service.getEmployeeDetail(for: employeeId) { [weak self] result in
+        Task(priority: .medium) {
+            let result = await service.getEmployeeDetail(for: employeeId)
             switch result {
             case .success(let employee):
-                self?.employee = self?.employeeViewModel(for: employee)
+                self.employee = self.employeeViewModel(for: employee)
             case .failure(let _):
                 // TODO: display error message
                 break
