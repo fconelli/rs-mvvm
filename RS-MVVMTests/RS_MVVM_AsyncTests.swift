@@ -1,14 +1,14 @@
 //
-//  RS_MVVMTests.swift
+//  RS_MVVM_AsyncTests.swift
 //  RS-MVVMTests
 //
-//  Created by Francisco Conelli on 02/03/2022.
+//  Created by Francisco Conelli on 10/08/2022.
 //
 
 import XCTest
 @testable import RS_MVVM
 
-class RS_MVVMTests: XCTestCase {
+class RS_MVVM_AsyncTests: XCTestCase {
     
     func test_canInit() throws {
         let _ = try makeSUT()
@@ -24,25 +24,39 @@ class RS_MVVMTests: XCTestCase {
         XCTAssertEqual(sut.numberOfEmployees(), 0)
     }
     
-    func test_viewDidLoad_initialTableState() throws {
-        let service = makeServiceWithDelay()
-        let sut = try makeSUT(service: service)
-        
-        sut.loadViewIfNeeded()
-        
-        XCTAssertEqual(sut.numberOfEmployees(), 0)
-    }
+//    func test_viewDidLoad_initialTableState() throws {
+//        let service = makeServiceWithDelay()
+//        let sut = try makeSUT(service: service)
+//
+//        sut.loadViewIfNeeded()
+//
+//        // TOOD: set expectation and test employee qty after delay
+//
+//        XCTAssertEqual(sut.numberOfEmployees(), 0)
+//
+//        let expectation = self.expectation(description: "Waiting for the service call to fetch employees.")
+//
+//        // Wait for expectations for a maximum of 2 seconds.
+//        waitForExpectations(timeout: 2) { error in
+//            XCTAssertNil(error)
+//            XCTAssertEqual(sut.numberOfEmployees(), 0)
+//        }
+//    }
     
-    func test_viewDidLoad_rendersEmployeesFromAPI() throws {
+    func test_viewDidLoad_rendersEmployeesFromAPI() async throws {
         let service = makeServiceWith3Employees()
         let sut = try makeSUT(service: service)
         
-        sut.loadViewIfNeeded()
+        await sut.loadViewIfNeeded()
         
-        XCTAssertEqual(sut.numberOfEmployees(), 3)
-        XCTAssertEqual(sut.name(atIndex: 0), "Employee0")
-        XCTAssertEqual(sut.name(atIndex: 1), "Employee1")
-        XCTAssertEqual(sut.name(atIndex: 2), "Employee2")
+        let noEmployees = await sut.numberOfEmployees()
+        let nameEmployee0 = await sut.name(atIndex: 0)
+        let nameEmployee1 = await sut.name(atIndex: 1)
+        let nameEmployee2 = await sut.name(atIndex: 2)
+        XCTAssertEqual(noEmployees, 3)
+        XCTAssertEqual(nameEmployee0, "Employee0")
+        XCTAssertEqual(nameEmployee1, "Employee1")
+        XCTAssertEqual(nameEmployee2, "Employee2")
     }
     
     func test_viewDidLoad_rendersEmptyListOnServiceError() throws {

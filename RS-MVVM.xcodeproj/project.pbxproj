@@ -23,6 +23,8 @@
 		5626445527CFA3B600A8D2C2 /* EmployeesViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */; };
 		562E3B5D28537CB80093E9BE /* EmployeeDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562E3B5C28537CB80093E9BE /* EmployeeDetailViewController.swift */; };
 		562F530E287345E30069F12F /* EmployeeDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 562F530D287345E30069F12F /* EmployeeDetailViewModel.swift */; };
+		565A1C8728A4491600A131D3 /* RS_MVVM_AsyncTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A1C8628A4491600A131D3 /* RS_MVVM_AsyncTests.swift */; };
+		565A1C8928A44D6000A131D3 /* EmployeeServiceMock.swift in Sources */ = {isa = PBXBuildFile; fileRef = 565A1C8828A44D6000A131D3 /* EmployeeServiceMock.swift */; };
 		566BF7FC28368C8400BB1D39 /* EmployeeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF7FB28368C8400BB1D39 /* EmployeeViewModel.swift */; };
 		566BF7FE28368FC500BB1D39 /* EmployeePresentable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 566BF7FD28368FC500BB1D39 /* EmployeePresentable.swift */; };
 		5671134A283580AF00A01197 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56711349283580AF00A01197 /* Coordinator.swift */; };
@@ -60,6 +62,8 @@
 		5626445427CFA3B600A8D2C2 /* EmployeesViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeesViewModel.swift; sourceTree = "<group>"; };
 		562E3B5C28537CB80093E9BE /* EmployeeDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewController.swift; sourceTree = "<group>"; };
 		562F530D287345E30069F12F /* EmployeeDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeDetailViewModel.swift; sourceTree = "<group>"; };
+		565A1C8628A4491600A131D3 /* RS_MVVM_AsyncTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RS_MVVM_AsyncTests.swift; sourceTree = "<group>"; };
+		565A1C8828A44D6000A131D3 /* EmployeeServiceMock.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeServiceMock.swift; sourceTree = "<group>"; };
 		566BF7FB28368C8400BB1D39 /* EmployeeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeViewModel.swift; sourceTree = "<group>"; };
 		566BF7FD28368FC500BB1D39 /* EmployeePresentable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeePresentable.swift; sourceTree = "<group>"; };
 		56711349283580AF00A01197 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -126,6 +130,8 @@
 			isa = PBXGroup;
 			children = (
 				5626443227CF9AB000A8D2C2 /* RS_MVVMTests.swift */,
+				565A1C8628A4491600A131D3 /* RS_MVVM_AsyncTests.swift */,
+				565A1C8828A44D6000A131D3 /* EmployeeServiceMock.swift */,
 			);
 			path = "RS-MVVMTests";
 			sourceTree = "<group>";
@@ -353,6 +359,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				5626443327CF9AB000A8D2C2 /* RS_MVVMTests.swift in Sources */,
+				565A1C8928A44D6000A131D3 /* EmployeeServiceMock.swift in Sources */,
+				565A1C8728A4491600A131D3 /* RS_MVVM_AsyncTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
