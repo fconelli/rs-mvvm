@@ -34,6 +34,7 @@ class EmployeesViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        navigationItem.title = "Employees"
         setupTableView()
         setupBindings()
         fetchEmployees()
@@ -60,7 +61,9 @@ class EmployeesViewController: UIViewController {
     
     func fetchEmployees() {
         startLoading()
-        viewModel.getEmployees()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.viewModel.getEmployeesAsync()
+        }
     }
   
     @objc private func refreshEmployeesData(_ sender: Any) {
@@ -68,6 +71,7 @@ class EmployeesViewController: UIViewController {
     }
   
     func startLoading() {
+        guard viewModel.numberOfRows == 0 else { return }
         DispatchQueue.main.async {
             self.loaderIndicator.isHidden = false
             self.loaderIndicator.startAnimating()
@@ -82,7 +86,7 @@ class EmployeesViewController: UIViewController {
 
 extension EmployeesViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return viewModel.nunmberOfRows 
+        return viewModel.numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

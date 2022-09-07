@@ -22,14 +22,22 @@ class EmployeesViewModel {
         self.service = service
     }
     
-    var nunmberOfRows: Int {
+    var numberOfRows: Int {
         return employees.count
     }
     
-    func getEmployees() {
+    func getEmployeesAsync() {
         Task(priority: .medium) {
             let employees = await service.getEmployeesList()
             self.employees = employees
+        }
+    }
+    
+    func getEmployees() {
+        service.getEmployees() { [weak self] employees, error in
+            guard error == nil else { return }
+
+            self?.employees = employees
         }
     }
     
