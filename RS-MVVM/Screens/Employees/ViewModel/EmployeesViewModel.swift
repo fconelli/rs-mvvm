@@ -15,6 +15,7 @@ protocol EmployeesDelegate: AnyObject {
 class EmployeesViewModel {
     
     @Published private(set) var employees: [Employee] = []
+    @Published private(set) var error: Error?
     private let service: EmployeeService
     var delegate: EmployeesDelegate?
     
@@ -28,16 +29,24 @@ class EmployeesViewModel {
     
     func getEmployeesAsync() {
         Task(priority: .medium) {
-            let employees = await service.getEmployeesList()
-            self.employees = employees
+            let result = await service.getEmployeesList()
+            switch result {
+            case .success(let employees):
+                self.employees = employees
+            case .failure(let error):
+                self.error = error
+            }
         }
     }
     
     func getEmployees() {
-        service.getEmployees() { [weak self] employees, error in
-            guard error == nil else { return }
-
-            self?.employees = employees
+        service.getEmployees() { [weak self] result in
+            switch result {
+            case .success(let employees):
+                self?.employees = employees
+            case .failure(let error):
+                self?.error = error
+            }
         }
     }
     

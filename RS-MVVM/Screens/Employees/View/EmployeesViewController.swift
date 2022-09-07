@@ -57,6 +57,13 @@ class EmployeesViewController: UIViewController {
               self?.refreshControl.endRefreshing()
           }
           .store(in: &subscriptions)
+        
+        viewModel.$error
+          .receive(on: DispatchQueue.main)
+          .sink { _ in
+              // TODO update UI with error message.
+          }
+          .store(in: &subscriptions)
     }
     
     func fetchEmployees() {

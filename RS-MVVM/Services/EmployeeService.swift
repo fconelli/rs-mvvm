@@ -9,23 +9,27 @@ import Foundation
 
 protocol EmployeeService {
     typealias Result = Swift.Result<Employee, Error>
+    typealias ResultList = Swift.Result<[Employee], Error>
     
-    func getEmployees(completion: @escaping ([Employee], Error?) -> Void)
+    func getEmployees(completion: @escaping (ResultList) -> Void)
     func getEmployeeDetail(for employeeId: String, completion: @escaping (Result) -> Void)
 
     func getEmployeeDetail(for employeeId: String) async -> Result
-    func getEmployeesList() async -> [Employee]
+    func getEmployeesList() async -> ResultList
 }
 
 extension EmployeeService {
     func getEmployeeDetail(for employeeId: String, completion: @escaping (Result) -> Void) {
-        getEmployees() { employees, error in
-            guard error == nil else { return }
-
-            if let employee = employees.first(where: { $0.id == employeeId }) {
-                completion(.success(employee))
-            } else {
-                let error = NSError(domain: "No employee found for ID \(employeeId)", code: 0)
+        getEmployees() { result in
+            switch result {
+            case .success(let employees):
+                if let employee = employees.first(where: { $0.id == employeeId }) {
+                    completion(.success(employee))
+                } else {
+                    let error = NSError(domain: "No employee found for ID \(employeeId)", code: 0)
+                    completion(.failure(error))
+                }
+            case .failure(let error):
                 completion(.failure(error))
             }
         }
@@ -39,9 +43,9 @@ extension EmployeeService {
         }
     }
     
-    func getEmployeesList() async -> [Employee] {
+    func getEmployeesList() async -> ResultList {
         await withCheckedContinuation { continuation in
-            getEmployees() { result, error in
+            getEmployees() { result in
                 continuation.resume(returning: result)
             }
         }
@@ -49,19 +53,19 @@ extension EmployeeService {
 }
 
 class EmployeeRemoteService: EmployeeService {
-    func getEmployees(completion: @escaping ([Employee], Error?) -> Void) {
+    func getEmployees(completion: @escaping (ResultList) -> Void) {
         // load from API
         let demoJsonURL = "https://raw.githubusercontent.com/johncodeos-blog/MVVMiOSExample/main/demo.json"
         loadJson(fromURLString: demoJsonURL) { response in
             switch response {
             case .success(let data):
                 if let employees = try? EmployeesMapper.map(data) {
-                    completion(employees,nil)
+                    completion(.success(employees))
                 } else {
-                    completion([], nil)
+                    completion(.success([]))
                 }
             default:
-                completion([], nil)
+                completion(.success([]))
             }
         }
     }
@@ -85,12 +89,12 @@ class EmployeeRemoteService: EmployeeService {
 }
 
 class EmployeeLocalService: EmployeeService {
-    func getEmployees(completion: @escaping ([Employee], Error?) -> Void) {
+    func getEmployees(completion: @escaping (ResultList) -> Void) {
         // load from file
         if let data = loadJSON(fromFile: "demo"), let employees = try? EmployeesMapper.map(data) {
-            completion(employees,nil)
+            completion(.success(employees))
         } else {
-            completion([], nil)
+            completion(.success([]))
         }
     }
     

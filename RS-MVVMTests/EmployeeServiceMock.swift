@@ -14,29 +14,29 @@ class EmployeeServiceMock: EmployeeService {
     var delay = 0
     var success = true
     
-    func getEmployees(completion: @escaping ([Employee], Error?) -> Void) {
+    func getEmployees(completion: @escaping (ResultList) -> Void) {
         if !success {
-            completion([], NSError())
+            completion(.failure(NSError()))
             return
         }
         if delay == 0 {
-            completion(employees, nil)
+            completion(.success(employees))
             return
         }
         DispatchQueue.main.asyncAfter(deadline: .now() + DispatchTimeInterval.seconds(delay)) { [weak self] in
             guard let wself = self else { return }
-            completion(wself.employees, nil)
+            completion(.success(wself.employees))
         }
     }
     
-    func getEmployeesList() async -> [Employee] {
+    func getEmployeesList() async -> ResultList {
         if !success {
-            return []
+            return .failure(NSError())
         }
         if delay == 0 {
-            return employees
+            return .success(employees)
         }
         Thread.sleep(forTimeInterval: Double(delay))
-        return employees
+        return .success(employees)
     }
 }
